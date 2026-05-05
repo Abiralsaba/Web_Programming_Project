@@ -1,0 +1,9 @@
+/* admin-exams.css */
+.exam-action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.exam-action-btn {
+  flex: 1;
+}

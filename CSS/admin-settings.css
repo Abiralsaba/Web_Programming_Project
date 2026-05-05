@@ -1,0 +1,18 @@
+/* admin-settings.css */
+.settings-card {
+  max-width: 600px;
+}
+
+.settings-label {
+  margin-bottom: 4px;
+}
+
+.settings-hint {
+  font-size: 14px;
+}
+
+.settings-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary-color);
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - MAMA-KHALU.COM</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/login.css">
+</head>
+<body class="login-body">
+
+  <!-- Left Panel -->
+  <div class="login-left">
+    <a href="index.html" class="logo mb-5">MAMA<span>KHALU</span></a>
+    <h1 class="login-heading mb-4">Welcome to the<br>Future of Hiring</h1>
+    <ul class="login-features">
+      <li class="mb-3"><span class="login-check">✓</span> AI-Powered Skill Matching</li>
+      <li class="mb-3"><span class="login-check">✓</span> Instant Exam Results</li>
+      <li class="mb-3"><span class="login-check">✓</span> Personalized Career Paths</li>
+      <li class="mb-3"><span class="login-check">✓</span> 24/7 Course Access</li>
+    </ul>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="login-right">
+    <div class="login-decor-1"></div>
+    <div class="login-decor-2"></div>
+
+    <div class="glass-card-static fade-in login-card">
+      <h2 class="mb-1 text-center">Sign In</h2>
+      <p class="text-muted text-center mb-4">Enter your credentials to access your account</p>
+
+      <form id="login-form" onsubmit="event.preventDefault(); window.location.href='dashboard.html';">
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" class="form-input" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <div class="flex-between mb-1">
+            <label class="form-label" for="password" style="margin-bottom:0;">Password</label>
+            <a href="#" class="text-primary login-forgot">Forgot password?</a>
+          </div>
+          <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+        </div>
+
+        <div class="flex-between mb-4">
+          <label class="flex-center gap-1" style="cursor:pointer;">
+            <input type="checkbox" class="login-checkbox">
+            <span class="text-muted text-sm">Remember me</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full">Sign In</button>
+      </form>
+
+      <p class="text-center mt-3 text-muted text-sm">
+        Don't have an account? <a href="#" class="text-primary font-medium">Sign up</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="../JS/script.js"></script>
+</body>
+</html>

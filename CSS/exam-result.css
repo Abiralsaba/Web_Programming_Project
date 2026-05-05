@@ -1,0 +1,89 @@
+/* ── Exam Result Page ── */
+@keyframes confettiDrop {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.confetti-piece {
+  position: fixed;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  z-index: -1;
+  animation: confettiDrop 3.5s ease-in infinite;
+}
+
+.result-body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.result-wrapper {
+  max-width: 520px;
+  width: 100%;
+}
+
+.result-card {
+  padding: 48px 32px;
+  text-align: center;
+}
+
+.result-icon {
+  font-size: 56px;
+  margin-bottom: 16px;
+}
+
+.result-title {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.result-msg {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.score-ring {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 8px solid var(--primary-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 32px auto;
+  background: var(--white);
+}
+
+.score-ring.pass { border-color: rgba(16, 185, 129, 0.3); }
+.score-ring.fail { border-color: rgba(239, 68, 68, 0.2); }
+
+.score-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.score-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.result-job-name {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 480px) {
+  .result-card { padding: 32px 20px; }
+  .result-title { font-size: 20px; }
+  .score-ring { width: 120px; height: 120px; }
+  .score-value { font-size: 28px; }
+}

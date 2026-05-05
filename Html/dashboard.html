@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - MAMA-KHALU.COM</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/dashboard.css">
+</head>
+<body>
+
+  <nav class="glass-nav">
+    <div class="container navbar">
+      <a href="index.html" class="logo">MAMA<span>KHALU</span></a>
+      <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+      <div class="nav-links">
+        <a href="dashboard.html" class="nav-link nav-active">Dashboard</a>
+        <a href="jobs.html" class="nav-link">Browse Jobs</a>
+        <a href="#" class="nav-link">My Applications</a>
+        <div class="avatar">JD</div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-4 mb-5">
+    <header class="mb-4">
+      <h1 class="mb-1">Welcome back, <span id="user-name">John</span>! 👋</h1>
+      <p class="text-muted">Here's what's happening with your job search today.</p>
+    </header>
+
+    <!-- Stats -->
+    <div class="dash-stats mb-4">
+      <div class="glass-card slide-up">
+        <p class="text-muted text-sm mb-1">Applications</p>
+        <div class="flex-between">
+          <span class="stat-val">12</span>
+          <span class="badge badge-success">+3</span>
+        </div>
+      </div>
+      <div class="glass-card slide-up" style="animation-delay:.1s">
+        <p class="text-muted text-sm mb-1">Exams Passed</p>
+        <div class="flex-between">
+          <span class="stat-val">8</span>
+          <span class="badge badge-success">+2</span>
+        </div>
+      </div>
+      <div class="glass-card slide-up" style="animation-delay:.2s">
+        <p class="text-muted text-sm mb-1">Active Courses</p>
+        <div class="flex-between">
+          <span class="stat-val">1</span>
+          <span class="badge">In Progress</span>
+        </div>
+      </div>
+      <div class="glass-card slide-up" style="animation-delay:.3s">
+        <p class="text-muted text-sm mb-1">Success Rate</p>
+        <div class="flex-between">
+          <span class="stat-val">87%</span>
+          <span class="badge badge-success">+5%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <!-- Recent Applications -->
+      <div class="glass-card-static slide-up" style="animation-delay:.4s">
+        <div class="flex-between mb-3">
+          <h3>Recent Applications</h3>
+          <a href="#" class="text-primary text-sm">View All</a>
+        </div>
+
+        <div class="app-row">
+          <div>
+            <h4>Frontend Developer</h4>
+            <p class="text-muted text-sm">TechCorp</p>
+          </div>
+          <div class="text-right">
+            <span class="badge badge-warning">Interviewing</span>
+            <p class="text-muted text-xs mt-1">Score: 92%</p>
+          </div>
+        </div>
+
+        <div class="app-row">
+          <div>
+            <h4>UI/UX Designer</h4>
+            <p class="text-muted text-sm">CreativeStudio</p>
+          </div>
+          <div class="text-right">
+            <span class="badge badge-info">Pending</span>
+            <p class="text-muted text-xs mt-1">Score: 88%</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Completion -->
+      <div class="glass-card-static slide-up" style="animation-delay:.5s">
+        <h3 class="mb-3">Profile Completion</h3>
+        <div class="progress-ring mb-3">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="54" fill="none" stroke="#e0f7f5" stroke-width="10"/>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="var(--primary)" stroke-width="10"
+              stroke-dasharray="339.3" stroke-dashoffset="84.8" stroke-linecap="round"
+              transform="rotate(-90 60 60)"/>
+          </svg>
+          <div class="progress-ring-overlay">
+            <span class="progress-ring-value">75%</span>
+          </div>
+        </div>
+        <p class="text-center text-muted text-sm mb-3">Complete your profile to boost hiring chances.</p>
+        <button class="btn btn-outline w-full">Complete Profile</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="../JS/script.js"></script>
+</body>
+</html>

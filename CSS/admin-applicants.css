@@ -1,0 +1,31 @@
+/* admin-applicants.css */
+.admin-search-input {
+  width: 300px;
+}
+
+.admin-email-text {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.score-high {
+  color: var(--primary-color);
+}
+
+.score-low {
+  color: #ef4444;
+}
+
+.status-select {
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.status-badge-upskilling {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.btn-small {
+  padding: 4px 8px;
+}

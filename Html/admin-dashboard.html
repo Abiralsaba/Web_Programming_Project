@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - MAMA-KHALU.COM</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/admin-shared.css">
+  <link rel="stylesheet" href="../CSS/admin-dashboard.css">
+</head>
+<body class="admin-body">
+
+  <nav class="glass-nav">
+    <div class="container navbar flex-between" style="max-width:1400px;">
+      <a href="index.html" class="logo">MAMA<span>KHALU</span> <span class="admin-badge-logo">ADMIN</span></a>
+      <div class="avatar">AD</div>
+    </div>
+  </nav>
+
+  <div class="admin-layout">
+    
+    <aside class="admin-sidebar">
+      <a href="admin-dashboard.html" class="sidebar-link active">Dashboard</a>
+      <a href="admin-jobs.html" class="sidebar-link">Manage Jobs</a>
+      <a href="admin-exams.html" class="sidebar-link">Manage Exams</a>
+      <a href="admin-courses.html" class="sidebar-link">Manage Courses</a>
+      <a href="admin-applicants.html" class="sidebar-link">Manage Applicants</a>
+      <a href="admin-reports.html" class="sidebar-link">Reports & Analytics</a>
+      <a href="admin-settings.html" class="sidebar-link">Settings</a>
+    </aside>
+
+    <main class="admin-main">
+      <h1 class="mb-4">Platform Overview</h1>
+
+      <div class="grid-4 mb-5">
+        <div class="glass-card-static slide-up">
+          <p class="text-muted text-sm mb-1">Total Applicants</p>
+          <h2>12,450</h2>
+          <span class="text-primary text-xs">↑ 12% vs last month</span>
+        </div>
+        <div class="glass-card-static slide-up" style="animation-delay: 0.1s; background: rgba(16, 185, 129, 0.05); border:none;">
+          <p class="text-muted text-sm mb-1">Exam Pass Rate</p>
+          <h2 style="color: #047857;">48%</h2>
+          <span class="text-xs" style="color: #047857;">Filter efficiency</span>
+        </div>
+        <div class="glass-card-static slide-up" style="animation-delay: 0.2s;">
+          <p class="text-muted text-sm mb-1">Jobs Filled</p>
+          <h2>1,204</h2>
+          <span class="text-muted text-xs">YTD 2026</span>
+        </div>
+        <div class="glass-card-static slide-up" style="animation-delay: 0.3s;">
+          <p class="text-muted text-sm mb-1">Active Courses</p>
+          <h2>45</h2>
+          <span class="text-muted text-xs">Total learning modules</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Mock Chart Area -->
+        <div class="glass-card-static slide-up">
+          <h3 class="mb-4">Applicant Growth</h3>
+          <div class="flex-between align-end" style="height:200px; border-bottom:1px solid rgba(0,0,0,0.1); padding-bottom:8px; gap:8px;">
+            <div style="flex:1; background:var(--primary); height:40%; border-radius:4px 4px 0 0;"></div>
+            <div style="flex:1; background:var(--primary); height:50%; border-radius:4px 4px 0 0;"></div>
+            <div style="flex:1; background:var(--primary); height:45%; border-radius:4px 4px 0 0;"></div>
+            <div style="flex:1; background:var(--primary); height:70%; border-radius:4px 4px 0 0;"></div>
+            <div style="flex:1; background:var(--primary); height:60%; border-radius:4px 4px 0 0;"></div>
+            <div style="flex:1; background:var(--gradient); height:90%; border-radius:4px 4px 0 0;"></div>
+          </div>
+          <div class="flex-between mt-2 text-muted text-xs">
+            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+          </div>
+        </div>
+
+        <div class="glass-card-static slide-up" style="animation-delay: 0.1s;">
+          <h3 class="mb-3">Recent Activity</h3>
+          <div class="flex-col gap-2">
+            <div class="flex-between pb-2" style="border-bottom:1px solid rgba(0,0,0,0.05);">
+              <div>
+                <strong class="text-sm">New job posted</strong>
+                <p class="text-muted text-xs">TechCorp: Senior React Developer</p>
+              </div>
+              <span class="text-muted text-xs">2m ago</span>
+            </div>
+            <div class="flex-between pb-2" style="border-bottom:1px solid rgba(0,0,0,0.05);">
+              <div>
+                <strong class="text-sm" style="color:var(--primary-dark);">Exam passed (95%)</strong>
+                <p class="text-muted text-xs">John Doe → Frontend Developer</p>
+              </div>
+              <span class="text-muted text-xs">15m ago</span>
+            </div>
+            <div class="flex-between">
+              <div>
+                <strong class="text-sm">Course completed</strong>
+                <p class="text-muted text-xs">Jane Smith: Intro to Hooks</p>
+              </div>
+              <span class="text-muted text-xs">1h ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>

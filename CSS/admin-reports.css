@@ -1,0 +1,10 @@
+/* admin-reports.css */
+.reports-card {
+  text-align: center;
+  padding: 64px;
+}
+
+.reports-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}

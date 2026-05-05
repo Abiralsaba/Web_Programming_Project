@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Assessment - MAMA-KHALU.COM</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/exam.css">
+</head>
+<body>
+
+  <!-- Exam Nav -->
+  <nav class="glass-nav">
+    <div class="container navbar flex-between">
+      <div class="exam-header">
+        <a href="index.html" class="logo">MAMA<span>KHALU</span></a>
+        <div class="exam-divider"></div>
+        <span class="exam-label">Skill Assessment — <span id="exam-job-name">Loading…</span></span>
+      </div>
+      <div class="exam-right">
+        <div class="timer">⏱ <span id="timer">15:00</span></div>
+        <a href="jobs.html" class="btn btn-outline" style="padding:8px 16px;">End Exam</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-5 mb-5 exam-main">
+
+    <!-- Progress -->
+    <div class="flex-between mb-2">
+      <div class="question-header">
+        <span class="question-num" id="question-num">Question 1</span>
+        <span class="question-total" id="question-total">of 5</span>
+      </div>
+      <span class="text-primary font-medium text-sm">80% to pass</span>
+    </div>
+
+    <div class="progress-track">
+      <div id="progress-bar" class="progress-fill"></div>
+    </div>
+
+    <!-- Question -->
+    <div class="glass-card-static slide-up question-card">
+      <h2 class="question-text" id="question-text">Loading question…</h2>
+      <p class="question-hint">Select the best answer</p>
+      <div class="options-container" id="options-container"></div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination-dots"></div>
+
+  </main>
+
+  <script src="../JS/script.js"></script>
+  <script>
+    // Timer
+    let seconds = 15 * 60;
+    const timerDisplay = document.getElementById('timer');
+    const countdown = setInterval(() => {
+      seconds--;
+      if (seconds <= 0) {
+        clearInterval(countdown);
+        localStorage.setItem('lastExamScore', 0);
+        window.location.href = 'exam-result.html';
+      }
+      const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+      const s = (seconds % 60).toString().padStart(2, '0');
+      timerDisplay.textContent = `${m}:${s}`;
+    }, 1000);
+  </script>
+</body>
+</html>

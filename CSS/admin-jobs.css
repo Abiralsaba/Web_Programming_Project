@@ -1,0 +1,22 @@
+/* admin-jobs.css */
+.badge-active {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.badge-draft {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--text-light);
+}
+
+.btn-small {
+  padding: 4px 8px;
+}
+
+.text-danger {
+  color: #ef4444;
+}
+
+.text-success {
+  color: #10b981;
+}

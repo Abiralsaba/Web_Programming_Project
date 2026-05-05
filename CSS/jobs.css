@@ -1,0 +1,40 @@
+/* ── Jobs Page ── */
+.search-row {
+  display: flex;
+  gap: 12px;
+  max-width: 420px;
+}
+
+.search-row .form-input { flex: 1; }
+
+.filter-bar {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.filter-tab {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-bottom: 8px;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.filter-tab:hover { color: var(--primary); }
+
+.filter-tab.active {
+  color: var(--primary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary);
+}
+
+@media (max-width: 768px) {
+  .search-row { max-width: 100%; }
+  .filter-bar { gap: 16px; }
+}

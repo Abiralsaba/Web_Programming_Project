@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Result - MAMA-KHALU.COM</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/exam-result.css">
+</head>
+<body class="result-body">
+
+  <div id="confetti-box"></div>
+
+  <div class="result-wrapper">
+    <div class="glass-card-static slide-up result-card">
+
+      <div class="result-icon" id="result-icon">📊</div>
+      <h1 class="result-title" id="result-title">Calculating…</h1>
+      <p class="result-msg" id="result-msg">Your score is being processed.</p>
+
+      <div class="score-ring" id="score-circle">
+        <span class="score-label">Score</span>
+        <span class="score-value" id="result-score">—</span>
+      </div>
+
+      <p class="result-job-name">Assessment for: <strong id="result-job">—</strong></p>
+
+      <div id="result-action"></div>
+
+      <a href="dashboard.html" class="text-muted text-sm mt-3" style="display:inline-block;">← Return to Dashboard</a>
+    </div>
+  </div>
+
+  <script src="../JS/script.js"></script>
+  <script>
+    // Confetti if passed
+    setTimeout(() => {
+      const score = parseInt(localStorage.getItem('lastExamScore')) || 0;
+      if (score >= 80) {
+        const box = document.getElementById('confetti-box');
+        const colors = ['#0d9488', '#10b981', '#3b82f6', '#f59e0b', '#ec4899'];
+        for (let i = 0; i < 60; i++) {
+          const piece = document.createElement('div');
+          piece.className = 'confetti-piece';
+          piece.style.left = Math.random() * 100 + 'vw';
+          piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+          piece.style.animationDelay = Math.random() * 3 + 's';
+          piece.style.width = (6 + Math.random() * 8) + 'px';
+          piece.style.height = (6 + Math.random() * 8) + 'px';
+          piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+          box.appendChild(piece);
+        }
+      }
+    }, 200);
+  </script>
+</body>
+</html>

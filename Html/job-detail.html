@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details - MAMA-KHALU.COM</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/job-detail.css">
+</head>
+<body>
+
+  <nav class="glass-nav">
+    <div class="container navbar">
+      <a href="index.html" class="logo">MAMA<span>KHALU</span></a>
+      <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+      <div class="nav-links">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="jobs.html" class="nav-link nav-active">Browse Jobs</a>
+        <a href="#" class="nav-link">My Applications</a>
+        <div class="avatar">JD</div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-4 mb-5">
+    <a href="jobs.html" class="btn btn-ghost mb-4" style="padding-left:0;">← Back to Jobs</a>
+
+    <div class="job-detail-grid">
+      
+      <!-- Left Column -->
+      <div class="glass-card slide-up">
+        <div class="job-header mb-4">
+          <div class="company-icon" id="company-icon">C</div>
+          <div style="flex:1;">
+            <h1 id="job-title" style="font-size:28px;">Loading…</h1>
+            <p id="job-company" class="text-muted" style="font-size:16px;">Loading…</p>
+          </div>
+        </div>
+
+        <div class="job-meta-row mb-4">
+          <div>
+            <p class="text-muted text-sm">Salary</p>
+            <strong class="text-primary" id="job-salary" style="font-size:20px;">—</strong>
+          </div>
+          <div>
+            <p class="text-muted text-sm text-right">Location & Type</p>
+            <strong id="job-location">—</strong>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="mb-2">Required Skills</h3>
+          <div id="job-skills" class="skills-container"></div>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="mb-2">About the Role</h3>
+          <p class="text-muted mb-3">We are looking for an experienced professional to join our core team. You will be responsible for building scalable, robust features and ensuring high performance across our applications.</p>
+          <ul class="req-list">
+            <li>Collaborate with cross-functional teams</li>
+            <li>Write clean, maintainable, and efficient code</li>
+            <li>Participate in code reviews</li>
+            <li>Optimize application for maximum speed</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="sidebar-layout">
+        
+        <div class="glass-card-static slide-up" style="animation-delay: 0.1s; text-align:center;">
+          <h3 class="mb-2">Assessment Required</h3>
+          <p class="text-muted text-sm mb-4">To unlock the application form for this role, you must pass a brief technical assessment (80% passing score).</p>
+          <a id="take-exam-btn" href="#" class="btn btn-primary w-full">Take Assessment →</a>
+        </div>
+
+        <div class="glass-card-static slide-up" style="animation-delay: 0.2s;">
+          <h3 class="mb-3">Job Details</h3>
+          <div class="stat-row">
+            <span class="text-muted">Posted</span>
+            <strong>2 days ago</strong>
+          </div>
+          <div class="stat-row">
+            <span class="text-muted">Deadline</span>
+            <strong>Oct 15, 2026</strong>
+          </div>
+          <div class="stat-row">
+            <span class="text-muted">Applicants</span>
+            <strong id="job-applicants">—</strong>
+          </div>
+          <div class="stat-row">
+            <span class="text-muted">Match Score</span>
+            <strong class="text-primary">95%</strong>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../JS/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+/* admin-login.css */
+.admin-login-body {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-light);
+}
+
+.admin-login-decor-top {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: var(--primary-gradient);
+  filter: blur(100px);
+  opacity: 0.3;
+  border-radius: 50%;
+}
+
+.admin-login-decor-bottom {
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: var(--primary-color);
+  filter: blur(100px);
+  opacity: 0.2;
+  border-radius: 50%;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+}
+
+.admin-logo-center {
+  justify-content: center;
+}
+
+.admin-badge {
+  background: rgba(13, 148, 136, 0.1);
+  color: var(--primary-dark);
+}
+
+.admin-login-btn {
+  width: 100%;
+}
+
+.admin-back-link-container {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.admin-back-link {
+  font-size: 14px;
+}

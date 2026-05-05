@@ -1,0 +1,29 @@
+/* ── Apply Page ── */
+.apply-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.upload-zone {
+  border: 2px dashed rgba(13, 148, 136, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 40px 24px;
+  text-align: center;
+  background: rgba(13, 148, 136, 0.02);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upload-zone:hover {
+  background: rgba(13, 148, 136, 0.06);
+  border-color: var(--primary);
+}
+
+.upload-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .upload-zone { padding: 24px 16px; }
+}
