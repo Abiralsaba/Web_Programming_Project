@@ -4,22 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MAMA-KHALU.COM — Skill-Based Recruitment</title>
-  <link rel="stylesheet" href="../CSS/style.css">
-  <link rel="stylesheet" href="../CSS/index.css">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/index.css">
   <meta name="description" content="A premium, skill-first job recruitment platform.">
 </head>
 <body>
 
+<?php session_start(); ?>
   <!-- Nav -->
   <nav class="glass-nav">
     <div class="container navbar">
-      <a href="index.html" class="logo">MAMA<span>KHALU</span></a>
+      <a href="index.php" class="logo">MAMA<span>KHALU</span></a>
       <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
       <div class="nav-links">
-        <a href="jobs.html" class="nav-link">Browse Jobs</a>
-        <a href="login.html" class="nav-link">Login</a>
-        <a href="login.html" class="btn btn-primary">Get Started</a>
-        <a href="admin-login.html" class="nav-link text-muted nav-admin">Admin</a>
+        <a href="jobs.php" class="nav-link">Browse Jobs</a>
+        <?php if(isset($_SESSION['user_id'])): ?>
+            <a href="dashboard.php" class="nav-link">Dashboard</a>
+            <a href="logout.php" class="btn btn-outline">Logout</a>
+        <?php else: ?>
+            <a href="login.php" class="nav-link">Login</a>
+            <a href="login.php" class="btn btn-primary">Get Started</a>
+        <?php endif; ?>
+        <?php if(!isset($_SESSION['admin_id'])): ?>
+            <a href="admin-login.php" class="nav-link text-muted nav-admin">Admin</a>
+        <?php else: ?>
+            <a href="admin-dashboard.php" class="nav-link text-muted nav-admin">Admin Dashboard</a>
+        <?php endif; ?>
       </div>
     </div>
   </nav>
@@ -31,8 +41,8 @@
       <h1 class="hero-title">Find Your Dream Job<br><span class="hero-highlight">With Skill-Based Hiring</span></h1>
       <p class="hero-sub">No more resume black holes. Prove your skills, bypass the screening phase, and connect directly with top employers.</p>
       <div class="hero-btns">
-        <a href="jobs.html" class="btn btn-primary">Browse Jobs</a>
-        <a href="login.html" class="btn btn-outline">Create Profile</a>
+        <a href="jobs.php" class="btn btn-primary">Browse Jobs</a>
+        <a href="login.php" class="btn btn-outline">Create Profile</a>
       </div>
     </div>
   </header>
@@ -109,7 +119,7 @@
     <div class="cta-box">
       <h2 class="mb-3">Ready to Transform Your Career?</h2>
       <p class="mb-4">Join thousands of professionals who found their dream jobs through skill-based hiring.</p>
-      <a href="login.html" class="btn cta-btn">Get Started Now</a>
+      <a href="login.php" class="btn cta-btn">Get Started Now</a>
     </div>
   </section>
 
@@ -117,6 +127,6 @@
     <p>© 2026 MAMA-KHALU.COM. All rights reserved.</p>
   </footer>
 
-  <script src="../JS/script.js"></script>
+  <script src="JS/script.js"></script>
 </body>
 </html>

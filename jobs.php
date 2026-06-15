@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jobs - MAMA-KHALU.COM</title>
-  <link rel="stylesheet" href="../CSS/style.css">
-  <link rel="stylesheet" href="../CSS/jobs.css">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/jobs.css">
 </head>
 <body>
 
   <nav class="glass-nav">
     <div class="container navbar">
-      <a href="index.html" class="logo">MAMA<span>KHALU</span></a>
+      <a href="index.php" class="logo">MAMA<span>KHALU</span></a>
       <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
       <div class="nav-links">
-        <a href="dashboard.html" class="nav-link">Dashboard</a>
-        <a href="jobs.html" class="nav-link nav-active">Browse Jobs</a>
+        <a href="dashboard.php" class="nav-link">Dashboard</a>
+        <a href="jobs.php" class="nav-link nav-active">Browse Jobs</a>
         <a href="#" class="nav-link">My Applications</a>
         <div class="avatar">JD</div>
       </div>
@@ -45,9 +45,29 @@
     </div>
 
     <!-- Job Cards -->
-    <div id="job-list" class="grid-3"></div>
+    <div class="grid-3">
+      <?php
+      require 'php with db class/db.php';
+      $sql = "SELECT * FROM jobs";
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+              echo '<div class="glass-card slide-up">';
+              echo '<h3 class="mb-1">' . htmlspecialchars($row['title']) . '</h3>';
+              echo '<p class="text-muted mb-2 text-sm">' . htmlspecialchars($row['company']) . ' · ' . htmlspecialchars($row['location']) . '</p>';
+              echo '<div class="flex-between">';
+              echo '<strong class="text-primary">' . htmlspecialchars($row['salary']) . '</strong>';
+              echo '<a href="job-detail.php?id=' . $row['id'] . '" class="btn btn-primary">View Job</a>';
+              echo '</div>';
+              echo '</div>';
+          }
+      } else {
+          echo "<p>No jobs found.</p>";
+      }
+      ?>
+    </div>
   </main>
 
-  <script src="../JS/script.js"></script>
+  <script src="JS/script.js"></script>
 </body>
 </html>

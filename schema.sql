@@ -1,0 +1,45 @@
+CREATE DATABASE IF NOT EXISTS mamakhalu;
+USE mamakhalu;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(20) DEFAULT 'user',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS jobs (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(100) NOT NULL,
+  company VARCHAR(100) NOT NULL,
+  location VARCHAR(100),
+  salary VARCHAR(50),
+  type VARCHAR(50),
+  status VARCHAR(20) DEFAULT 'active'
+);
+
+CREATE TABLE IF NOT EXISTS applications (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  job_id INT NOT NULL,
+  resume_path VARCHAR(255),
+  status VARCHAR(20) DEFAULT 'pending',
+  score INT DEFAULT 0,
+  applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (job_id) REFERENCES jobs(id)
+);
+
+CREATE TABLE IF NOT EXISTS exam_results (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  job_id INT NOT NULL,
+  score INT NOT NULL,
+  passed BOOLEAN NOT NULL,
+  taken_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (job_id) REFERENCES jobs(id)
+);

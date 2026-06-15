@@ -71,7 +71,7 @@ const store = {
 
 // ── Page Router ──
 document.addEventListener('DOMContentLoaded', () => {
-  const page = window.location.pathname.split('/').pop() || 'index.html';
+  const page = window.location.pathname.split('/').pop() || 'index.php';
 
   // Mobile menu toggle
   const toggle = document.querySelector('.menu-toggle');
@@ -82,11 +82,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Page init
   switch (page) {
-    case 'jobs.html': renderJobs(); break;
-    case 'job-detail.html': renderJobDetail(); break;
-    case 'exam.html': initExam(); break;
-    case 'exam-result.html': renderExamResult(); break;
-    case 'dashboard.html': renderDashboard(); break;
+    case 'jobs.php': renderJobs(); break;
+    case 'job-detail.php': renderJobDetail(); break;
+    case 'exam.php': initExam(); break;
+    case 'exam-result.php': renderExamResult(); break;
+    case 'dashboard.php': renderDashboard(); break;
   }
 });
 
@@ -109,7 +109,7 @@ function renderJobs() {
       <div class="mb-3">${job.skills.map(s => `<span class="tag">${s}</span>`).join('')}</div>
       <div class="flex-between">
         <strong class="text-primary">${job.salary}</strong>
-        <a href="job-detail.html?id=${job.id}" class="btn btn-primary">View Job</a>
+        <a href="job-detail.php?id=${job.id}" class="btn btn-primary">View Job</a>
       </div>
     `;
     list.appendChild(card);
@@ -132,7 +132,7 @@ function renderJobDetail() {
   if (skillsEl) skillsEl.innerHTML = job.skills.map(s => `<span class="tag">${s}</span>`).join('');
 
   const examBtn = document.getElementById('take-exam-btn');
-  if (examBtn) examBtn.href = `exam.html?id=${job.id}`;
+  if (examBtn) examBtn.href = `exam.php?id=${job.id}`;
 
   // Company initial
   const icon = document.getElementById('company-icon');
@@ -225,7 +225,7 @@ function selectAnswer(key, btn) {
       const percent = Math.round((examState.score / questions.length) * 100);
       localStorage.setItem('lastExamScore', percent);
       localStorage.setItem('lastExamJobId', examState.jobId);
-      window.location.href = 'exam-result.html';
+      window.location.href = 'exam-result.php';
     }
   }, 800);
 }
@@ -263,13 +263,13 @@ function renderExamResult() {
     icon.textContent = '🎉';
     title.textContent = 'Congratulations! You Passed!';
     msg.textContent = 'You scored above the 80% threshold. You can now submit your application.';
-    action.innerHTML = '<a href="apply.html" class="btn btn-primary w-full">Proceed to Application →</a>';
+    action.innerHTML = '<a href="apply.php" class="btn btn-primary w-full">Proceed to Application →</a>';
     if (circle) circle.classList.add('pass');
   } else {
     icon.textContent = '📚';
     title.textContent = 'Keep Going! You Can Do Better.';
     msg.textContent = `You need 80% to pass. We have assigned a skill-building course to help you improve.`;
-    action.innerHTML = '<a href="courses.html" class="btn btn-primary w-full">Start Assigned Course →</a>';
+    action.innerHTML = '<a href="courses.php" class="btn btn-primary w-full">Start Assigned Course →</a>';
     if (circle) circle.classList.add('fail');
   }
 }

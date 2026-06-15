@@ -1,21 +1,26 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Course - MAMA-KHALU.COM</title>
-  <link rel="stylesheet" href="../CSS/style.css">
-  <link rel="stylesheet" href="../CSS/courses.css">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/courses.css">
 </head>
 <body>
 
   <nav class="glass-nav">
     <div class="container navbar">
-      <a href="index.html" class="logo">MAMA<span>KHALU</span></a>
+      <a href="index.php" class="logo">MAMA<span>KHALU</span></a>
       <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
       <div class="nav-links">
-        <a href="dashboard.html" class="nav-link">Dashboard</a>
-        <a href="jobs.html" class="nav-link">Browse Jobs</a>
+        <a href="dashboard.php" class="nav-link">Dashboard</a>
+        <a href="jobs.php" class="nav-link">Browse Jobs</a>
+        <?php if(isset($_SESSION['user_id'])): ?>
+            <a href="logout.php" class="nav-link">Logout</a>
+            <div class="avatar"><?php echo strtoupper(substr($_SESSION['name'], 0, 1)); ?></div>
+        <?php endif; ?>
       </div>
     </div>
   </nav>
@@ -89,6 +94,6 @@
 
   </main>
 
-  <script src="../JS/script.js"></script>
+  <script src="JS/script.js"></script>
 </body>
 </html>
