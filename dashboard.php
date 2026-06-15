@@ -126,7 +126,7 @@ $recent_apps = $conn->query("
           </div>
         </div>
         <p class="text-center text-muted text-sm mb-3">Complete your profile to boost hiring chances.</p>
-        <button class="btn btn-outline w-full">Complete Profile</button>
+        <a href="profile.php" class="btn btn-outline w-full" style="display:block; text-align:center;">Complete Profile</a>
       </div>
     </div>
   </main>
