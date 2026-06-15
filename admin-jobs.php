@@ -9,8 +9,9 @@ if (!isset($_SESSION['admin_id'])) {
 
 if (isset($_GET['delete_id'])) {
     $del_id = intval($_GET['delete_id']);
-    // First delete related applications
+    // Cascade delete related records
     $conn->query("DELETE FROM applications WHERE job_id = $del_id");
+    $conn->query("DELETE FROM exam_results WHERE job_id = $del_id");
     $conn->query("DELETE FROM jobs WHERE id = $del_id");
     header("Location: admin-jobs.php");
     exit();
@@ -44,8 +45,7 @@ $jobs = $conn->query("SELECT j.*, (SELECT COUNT(*) FROM applications WHERE job_i
     <aside class="admin-sidebar">
       <a href="admin-dashboard.php" class="sidebar-link">Dashboard</a>
       <a href="admin-jobs.php" class="sidebar-link active">Manage Jobs</a>
-      <a href="admin-exams.php" class="sidebar-link">Manage Exams</a>
-      <a href="admin-courses.php" class="sidebar-link">Manage Courses</a>
+      <a href="admin-exams.php" class="sidebar-link">Exam Results</a>
       <a href="admin-applicants.php" class="sidebar-link">Manage Applicants</a>
     </aside>
 

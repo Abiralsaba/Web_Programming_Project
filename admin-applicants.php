@@ -54,8 +54,7 @@ $applicants = $conn->query($query);
     <aside class="admin-sidebar">
       <a href="admin-dashboard.php" class="sidebar-link">Dashboard</a>
       <a href="admin-jobs.php" class="sidebar-link">Manage Jobs</a>
-      <a href="admin-exams.php" class="sidebar-link">Manage Exams</a>
-      <a href="admin-courses.php" class="sidebar-link">Manage Courses</a>
+      <a href="admin-exams.php" class="sidebar-link">Exam Results</a>
       <a href="admin-applicants.php" class="sidebar-link active">Manage Applicants</a>
     </aside>
 

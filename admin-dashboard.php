@@ -44,8 +44,7 @@ $users_count = $users_result->fetch_assoc()['total'];
     <aside class="admin-sidebar">
       <a href="admin-dashboard.php" class="sidebar-link active">Dashboard</a>
       <a href="admin-jobs.php" class="sidebar-link">Manage Jobs</a>
-      <a href="admin-exams.php" class="sidebar-link">Manage Exams</a>
-      <a href="admin-courses.php" class="sidebar-link">Manage Courses</a>
+      <a href="admin-exams.php" class="sidebar-link">Exam Results</a>
       <a href="admin-applicants.php" class="sidebar-link">Manage Applicants</a>
     </aside>
 

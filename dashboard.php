@@ -74,9 +74,14 @@ $recent_apps = $conn->query("
         </div>
       </div>
       <div class="glass-card slide-up" style="animation-delay:.3s">
-        <p class="text-muted text-sm mb-1">Success Rate</p>
+        <p class="text-muted text-sm mb-1">Exam Pass Rate</p>
         <div class="flex-between">
-          <span class="stat-val"><?php echo $total_apps > 0 ? '100%' : '0%'; ?></span>
+          <?php
+            $taken_res = $conn->query("SELECT COUNT(*) as c FROM exam_results WHERE user_id = $user_id");
+            $total_taken = $taken_res->fetch_assoc()['c'];
+            $pass_rate = $total_taken > 0 ? round(($total_exams / $total_taken) * 100) : 0;
+          ?>
+          <span class="stat-val"><?php echo $pass_rate; ?>%</span>
         </div>
       </div>
     </div>
