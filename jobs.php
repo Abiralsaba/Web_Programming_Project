@@ -28,10 +28,13 @@
         <h1 class="mb-1">Find Your Dream Job</h1>
         <p class="text-muted">Browse open roles and take skill assessments to apply.</p>
       </div>
-      <div class="search-row">
-        <input type="text" class="form-input" placeholder="Search jobs…">
-        <button class="btn btn-primary">Search</button>
-      </div>
+      <form method="GET" action="jobs.php" class="search-row">
+        <?php if(isset($_GET['filter'])): ?>
+          <input type="hidden" name="filter" value="<?php echo htmlspecialchars($_GET['filter']); ?>">
+        <?php endif; ?>
+        <input type="text" name="search" class="form-input" placeholder="Search jobs…" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
     </div>
 
     <!-- Filter Tabs -->
@@ -49,10 +52,11 @@
       $counts['DevOps'] = $conn->query("SELECT COUNT(*) as c FROM jobs WHERE title LIKE '%DevOps%'")->fetch_assoc()['c'];
 
       $active_filter = isset($_GET['filter']) ? $_GET['filter'] : 'All Jobs';
+      $search_param = isset($_GET['search']) ? '&search=' . urlencode($_GET['search']) : '';
       
       foreach ($counts as $label => $count) {
           $active_class = $active_filter === $label ? 'active' : '';
-          echo "<a href='jobs.php?filter=" . urlencode($label) . "' class='filter-tab $active_class' style='text-decoration:none; color:inherit;'>$label ($count)</a> ";
+          echo "<a href='jobs.php?filter=" . urlencode($label) . $search_param . "' class='filter-tab $active_class' style='text-decoration:none; color:inherit;'>$label ($count)</a> ";
       }
       ?>
     </div>
@@ -61,11 +65,22 @@
     <div class="grid-3">
       <?php
       $sql = "SELECT * FROM jobs";
-      if ($active_filter === 'Frontend') $sql .= " WHERE title LIKE '%Frontend%' OR title LIKE '%React%'";
-      if ($active_filter === 'Backend') $sql .= " WHERE title LIKE '%Backend%' OR title LIKE '%Node%'";
-      if ($active_filter === 'Full Stack') $sql .= " WHERE title LIKE '%Full Stack%'";
-      if ($active_filter === 'Design') $sql .= " WHERE title LIKE '%Designer%' OR title LIKE '%UI/UX%'";
-      if ($active_filter === 'DevOps') $sql .= " WHERE title LIKE '%DevOps%'";
+      $conditions = [];
+
+      if ($active_filter === 'Frontend') $conditions[] = "(title LIKE '%Frontend%' OR title LIKE '%React%')";
+      if ($active_filter === 'Backend') $conditions[] = "(title LIKE '%Backend%' OR title LIKE '%Node%')";
+      if ($active_filter === 'Full Stack') $conditions[] = "(title LIKE '%Full Stack%')";
+      if ($active_filter === 'Design') $conditions[] = "(title LIKE '%Designer%' OR title LIKE '%UI/UX%')";
+      if ($active_filter === 'DevOps') $conditions[] = "(title LIKE '%DevOps%')";
+
+      if (isset($_GET['search']) && trim($_GET['search']) !== '') {
+          $s = $conn->real_escape_string(trim($_GET['search']));
+          $conditions[] = "(title LIKE '%$s%' OR company LIKE '%$s%' OR location LIKE '%$s%')";
+      }
+
+      if (count($conditions) > 0) {
+          $sql .= " WHERE " . implode(" AND ", $conditions);
+      }
 
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
