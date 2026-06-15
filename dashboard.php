@@ -91,7 +91,7 @@ $recent_apps = $conn->query("
       <div class="glass-card-static slide-up" style="animation-delay:.4s">
         <div class="flex-between mb-3">
           <h3>Recent Applications</h3>
-          <a href="#" class="text-primary text-sm">View All</a>
+          <a href="my-applications.php" class="text-primary text-sm">View All</a>
         </div>
 
         <?php while($row = $recent_apps->fetch_assoc()): ?>

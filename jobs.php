@@ -16,8 +16,14 @@
       <div class="nav-links">
         <a href="dashboard.php" class="nav-link">Dashboard</a>
         <a href="jobs.php" class="nav-link nav-active">Browse Jobs</a>
-        <a href="#" class="nav-link">My Applications</a>
-        <div class="avatar">JD</div>
+        <?php if(isset($_SESSION['user_id'])): ?>
+            <a href="my-applications.php" class="nav-link">My Applications</a>
+            <a href="logout.php" class="nav-link">Logout</a>
+            <div class="avatar"><?php echo strtoupper(substr($_SESSION['name'], 0, 1)); ?></div>
+        <?php else: ?>
+            <a href="login.php" class="nav-link">Login</a>
+            <a href="register.php" class="btn btn-primary" style="padding: 0.5rem 1rem;">Get Started</a>
+        <?php endif; ?>
       </div>
     </div>
   </nav>
