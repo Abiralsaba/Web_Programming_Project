@@ -16,15 +16,48 @@ $stmt->execute();
 $job_res = $stmt->get_result();
 $job_title = $job_res->num_rows > 0 ? $job_res->fetch_assoc()['title'] : "Assessment";
 
-// Basic PHP-based questions
 $exams = [
     1 => [
-        ['q' => 'What does the "useState" hook return in React?', 'options' => ['A state variable and a function to update it', 'Only a state variable', 'A reference to a DOM element', 'A callback function'], 'correct' => 0],
-        ['q' => 'Which CSS property is used to create flexible layouts?', 'options' => ['float', 'position', 'display: flex', 'overflow'], 'correct' => 2],
+        ['q' => 'What does HTML stand for?', 'options' => ['Hyper Text Markup Language', 'High Text Machine Language', 'Hyper Tabular Markup Language', 'None of these'], 'correct' => 0],
+        ['q' => 'Which CSS property is used to change the background color?', 'options' => ['color', 'bgcolor', 'background-color', 'background'], 'correct' => 2],
+        ['q' => 'Inside which HTML element do we put the JavaScript?', 'options' => ['<js>', '<scripting>', '<script>', '<javascript>'], 'correct' => 2],
+        ['q' => 'How do you create a function in JavaScript?', 'options' => ['function = myFunction()', 'function myFunction()', 'create myFunction()', 'def myFunction()'], 'correct' => 1],
+        ['q' => 'Which of the following is not a frontend framework?', 'options' => ['React', 'Angular', 'Django', 'Vue'], 'correct' => 2],
     ],
     2 => [
         ['q' => 'Which Node.js module is used to create an HTTP server?', 'options' => ['fs', 'http', 'path', 'url'], 'correct' => 1],
         ['q' => 'What does SQL stand for?', 'options' => ['Structured Query Language', 'Simple Query Logic', 'Standard Query Library', 'Server Query Language'], 'correct' => 0],
+        ['q' => 'What is a REST API?', 'options' => ['A database', 'An architectural style for APIs', 'A JavaScript framework', 'A server OS'], 'correct' => 1],
+        ['q' => 'Which database is a NoSQL database?', 'options' => ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite'], 'correct' => 2],
+        ['q' => 'What HTTP method is typically used to create a new resource?', 'options' => ['GET', 'POST', 'PUT', 'DELETE'], 'correct' => 1],
+    ],
+    3 => [
+        ['q' => 'What does UI stand for?', 'options' => ['User Integration', 'User Interface', 'Universal Interface', 'Unique Identity'], 'correct' => 1],
+        ['q' => 'What is the primary purpose of wireframing?', 'options' => ['To write code', 'To design the visual aesthetics', 'To establish structure and layout', 'To build the database'], 'correct' => 2],
+        ['q' => 'Which tool is industry-standard for UI/UX design?', 'options' => ['Microsoft Word', 'Figma', 'Visual Studio', 'Eclipse'], 'correct' => 1],
+        ['q' => 'What does UX stand for?', 'options' => ['User Experience', 'User Execution', 'User Extension', 'Universal Experience'], 'correct' => 0],
+        ['q' => 'What is a "persona" in UX design?', 'options' => ['A CSS class', 'A server configuration', 'A fictional character representing a user type', 'A type of button'], 'correct' => 2],
+    ],
+    4 => [
+        ['q' => 'What does the "useState" hook return in React?', 'options' => ['A state variable and a function to update it', 'Only a state variable', 'A reference to a DOM element', 'A callback function'], 'correct' => 0],
+        ['q' => 'What is JSX?', 'options' => ['A database query language', 'A syntax extension for JavaScript', 'A CSS framework', 'A testing tool'], 'correct' => 1],
+        ['q' => 'How do you pass data to a child component in React?', 'options' => ['Using state', 'Using context', 'Using props', 'Using Redux'], 'correct' => 2],
+        ['q' => 'Which hook is used to perform side effects in React?', 'options' => ['useContext', 'useReducer', 'useEffect', 'useMemo'], 'correct' => 2],
+        ['q' => 'What is the Virtual DOM?', 'options' => ['A real DOM object', 'A lightweight copy of the real DOM', 'A server-side concept', 'A new HTML5 element'], 'correct' => 1],
+    ],
+    5 => [
+        ['q' => 'What defines a Full Stack Developer?', 'options' => ['Someone who only writes CSS', 'Someone who handles both frontend and backend', 'Someone who manages servers only', 'A database administrator'], 'correct' => 1],
+        ['q' => 'Which stack uses MongoDB, Express, React, and Node?', 'options' => ['LAMP', 'MEAN', 'MERN', 'JAMstack'], 'correct' => 2],
+        ['q' => 'What is CORS?', 'options' => ['Cross-Origin Resource Sharing', 'Cascading Object Rendering System', 'Centralized Operating Resource System', 'Computer Online Routing System'], 'correct' => 0],
+        ['q' => 'What is a JWT?', 'options' => ['Java Web Toolkit', 'JSON Web Token', 'JavaScript Window Timer', 'Just Web Technologies'], 'correct' => 1],
+        ['q' => 'Which of these is a popular version control system?', 'options' => ['Git', 'NPM', 'Docker', 'Webpack'], 'correct' => 0],
+    ],
+    6 => [
+        ['q' => 'What is Docker used for?', 'options' => ['Creating virtual machines', 'Containerizing applications', 'Writing CSS', 'Querying databases'], 'correct' => 1],
+        ['q' => 'What does CI/CD stand for?', 'options' => ['Continuous Integration / Continuous Deployment', 'Code Integration / Code Delivery', 'Centralized Information / Centralized Data', 'Computer Interface / Computer Design'], 'correct' => 0],
+        ['q' => 'Which tool is commonly used for orchestration?', 'options' => ['Nginx', 'Kubernetes', 'Redis', 'React'], 'correct' => 1],
+        ['q' => 'What is Terraform primarily used for?', 'options' => ['Frontend design', 'Infrastructure as Code (IaC)', 'Database migrations', 'Unit testing'], 'correct' => 1],
+        ['q' => 'Which of the following is an AWS service?', 'options' => ['Azure', 'GCP', 'EC2', 'DigitalOcean'], 'correct' => 2],
     ]
 ];
 

@@ -36,19 +36,37 @@
 
     <!-- Filter Tabs -->
     <div class="filter-bar mb-4">
-      <span class="filter-tab active">All Jobs (6)</span>
-      <span class="filter-tab">Frontend (2)</span>
-      <span class="filter-tab">Backend (1)</span>
-      <span class="filter-tab">Full Stack (1)</span>
-      <span class="filter-tab">Design (1)</span>
-      <span class="filter-tab">DevOps (1)</span>
+      <?php
+      require 'php with db class/db.php';
+      
+      // Get counts
+      $counts = [];
+      $counts['All Jobs'] = $conn->query("SELECT COUNT(*) as c FROM jobs")->fetch_assoc()['c'];
+      $counts['Frontend'] = $conn->query("SELECT COUNT(*) as c FROM jobs WHERE title LIKE '%Frontend%' OR title LIKE '%React%'")->fetch_assoc()['c'];
+      $counts['Backend'] = $conn->query("SELECT COUNT(*) as c FROM jobs WHERE title LIKE '%Backend%' OR title LIKE '%Node%'")->fetch_assoc()['c'];
+      $counts['Full Stack'] = $conn->query("SELECT COUNT(*) as c FROM jobs WHERE title LIKE '%Full Stack%'")->fetch_assoc()['c'];
+      $counts['Design'] = $conn->query("SELECT COUNT(*) as c FROM jobs WHERE title LIKE '%Designer%' OR title LIKE '%UI/UX%'")->fetch_assoc()['c'];
+      $counts['DevOps'] = $conn->query("SELECT COUNT(*) as c FROM jobs WHERE title LIKE '%DevOps%'")->fetch_assoc()['c'];
+
+      $active_filter = isset($_GET['filter']) ? $_GET['filter'] : 'All Jobs';
+      
+      foreach ($counts as $label => $count) {
+          $active_class = $active_filter === $label ? 'active' : '';
+          echo "<a href='jobs.php?filter=" . urlencode($label) . "' class='filter-tab $active_class' style='text-decoration:none; color:inherit;'>$label ($count)</a> ";
+      }
+      ?>
     </div>
 
     <!-- Job Cards -->
     <div class="grid-3">
       <?php
-      require 'php with db class/db.php';
       $sql = "SELECT * FROM jobs";
+      if ($active_filter === 'Frontend') $sql .= " WHERE title LIKE '%Frontend%' OR title LIKE '%React%'";
+      if ($active_filter === 'Backend') $sql .= " WHERE title LIKE '%Backend%' OR title LIKE '%Node%'";
+      if ($active_filter === 'Full Stack') $sql .= " WHERE title LIKE '%Full Stack%'";
+      if ($active_filter === 'Design') $sql .= " WHERE title LIKE '%Designer%' OR title LIKE '%UI/UX%'";
+      if ($active_filter === 'DevOps') $sql .= " WHERE title LIKE '%DevOps%'";
+
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
