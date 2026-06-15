@@ -20,6 +20,7 @@
         <a href="jobs.php" class="nav-link">Browse Jobs</a>
         <?php if(isset($_SESSION['user_id'])): ?>
             <a href="dashboard.php" class="nav-link">Dashboard</a>
+            <a href="my-applications.php" class="nav-link">My Applications</a>
             <a href="logout.php" class="btn btn-outline">Logout</a>
         <?php else: ?>
             <a href="login.php" class="nav-link">Login</a>

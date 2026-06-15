@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +15,9 @@
       <a href="index.php" class="logo">MAMA<span>KHALU</span></a>
       <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
       <div class="nav-links">
-        <a href="dashboard.php" class="nav-link">Dashboard</a>
         <a href="jobs.php" class="nav-link nav-active">Browse Jobs</a>
         <?php if(isset($_SESSION['user_id'])): ?>
+            <a href="dashboard.php" class="nav-link">Dashboard</a>
             <a href="my-applications.php" class="nav-link">My Applications</a>
             <a href="logout.php" class="nav-link">Logout</a>
             <div class="avatar"><?php echo strtoupper(substr($_SESSION['name'], 0, 1)); ?></div>
