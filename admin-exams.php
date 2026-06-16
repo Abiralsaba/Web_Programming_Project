@@ -46,6 +46,7 @@ $results = $conn->query($query);
       <a href="admin-jobs.php" class="sidebar-link">Manage Jobs</a>
       <a href="admin-exams.php" class="sidebar-link active">Exam Results</a>
       <a href="admin-applicants.php" class="sidebar-link">Manage Applicants</a>
+      <a href="admin-complaints.php" class="sidebar-link">Complaints</a>
     </aside>
 
     <main class="admin-main">

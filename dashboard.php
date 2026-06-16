@@ -41,6 +41,7 @@ $recent_apps = $conn->query("
       <div class="nav-links">
         <a href="dashboard.php" class="nav-link nav-active">Dashboard</a>
         <a href="jobs.php" class="nav-link">Browse Jobs</a>
+        <a href="complaint.php" class="nav-link">Complaints</a>
         <a href="logout.php" class="nav-link">Logout</a>
         <div class="avatar"><?php echo strtoupper(substr($_SESSION['name'], 0, 1)); ?></div>
       </div>

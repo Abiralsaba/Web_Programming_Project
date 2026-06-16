@@ -47,6 +47,7 @@ $jobs = $conn->query("SELECT j.*, (SELECT COUNT(*) FROM applications WHERE job_i
       <a href="admin-jobs.php" class="sidebar-link active">Manage Jobs</a>
       <a href="admin-exams.php" class="sidebar-link">Exam Results</a>
       <a href="admin-applicants.php" class="sidebar-link">Manage Applicants</a>
+      <a href="admin-complaints.php" class="sidebar-link">Complaints</a>
     </aside>
 
     <main class="admin-main">
