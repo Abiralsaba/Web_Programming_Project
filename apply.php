@@ -11,7 +11,6 @@ $job_id = isset($_GET['id']) ? intval($_GET['id']) : (isset($_POST['job_id']) ? 
 
 $user_id = $_SESSION['user_id'];
 
-// Verify passing score
 $chk = $conn->query("SELECT score FROM exam_results WHERE user_id = $user_id AND job_id = $job_id AND passed = 1 ORDER BY taken_at DESC LIMIT 1");
 if ($chk->num_rows == 0) {
     die("You must pass the assessment before applying for this job. <a href='job-detail.php?id=$job_id'>Go back</a>");
@@ -20,7 +19,7 @@ $score = $chk->fetch_assoc()['score'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // Handle File Upload
+   
     $resume_path = "";
     if (isset($_FILES['resume']) && $_FILES['resume']['error'] == 0) {
         $target_dir = "uploads/";

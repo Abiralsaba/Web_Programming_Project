@@ -7,14 +7,14 @@ if (!isset($_SESSION['user_id'])) {
 }
 $user_id = $_SESSION['user_id'];
 
-// Stats
+
 $app_res = $conn->query("SELECT COUNT(*) as c FROM applications WHERE user_id = $user_id");
 $total_apps = $app_res->fetch_assoc()['c'];
 
 $exam_res = $conn->query("SELECT COUNT(*) as c FROM exam_results WHERE user_id = $user_id AND passed = 1");
 $total_exams = $exam_res->fetch_assoc()['c'];
 
-// Recent Applications
+
 $recent_apps = $conn->query("
     SELECT a.status, a.score, j.title, j.company 
     FROM applications a 
